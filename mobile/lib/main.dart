@@ -7,7 +7,6 @@ void main() {
 
 class SmartHealthApp extends StatelessWidget {
   const SmartHealthApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
