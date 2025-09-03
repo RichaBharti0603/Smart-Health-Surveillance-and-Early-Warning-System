@@ -1,0 +1,9 @@
+[build]
+  publish = "build/web"
+  command = "flutter build web"
+
+[build.environment]
+  FLUTTER_VERSION = "3.24.3"
+
+[context.production.environment]
+  FLUTTER_VERSION = "3.24.3"
