@@ -1,9 +1,15 @@
 [build]
   publish = "build/web"
-  command = "flutter build web"
+  command = """
+    git clone https://github.com/flutter/flutter.git /opt/flutter
+    export PATH="$PATH:/opt/flutter/bin"
+    flutter config --enable-web
+    flutter build web
+  """
 
 [build.environment]
   FLUTTER_VERSION = "3.24.3"
+  PATH = "/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 [context.production.environment]
   FLUTTER_VERSION = "3.24.3"
