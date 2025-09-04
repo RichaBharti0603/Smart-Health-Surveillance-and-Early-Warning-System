@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'signup_page.dart';
+import 'learn_more_page.dart';
+
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -60,7 +63,7 @@ class _LandingPageState extends State<LandingPage> {
             children: [
               const SizedBox(height: 30),
               const Text(
-                " सुरक्षित जल,स्वस्थ भारत",
+                " सुरक्षित जल, स्वस्थ भारत",
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
@@ -78,7 +81,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
               const SizedBox(height: 30),
 
-              // PageView (storytelling carousel)
+              // PageView
               Expanded(
                 child: PageView.builder(
                   controller: _controller,
@@ -89,7 +92,8 @@ class _LandingPageState extends State<LandingPage> {
                       children: [
                         CircleAvatar(
                           radius: 55,
-                          backgroundColor: pages[index]["color"].withOpacity(0.15),
+                          backgroundColor:
+                              pages[index]["color"].withOpacity(0.15),
                           child: Icon(
                             pages[index]["icon"],
                             size: 70,
@@ -108,7 +112,8 @@ class _LandingPageState extends State<LandingPage> {
                         ),
                         const SizedBox(height: 12),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                          padding:
+                              const EdgeInsets.symmetric(horizontal: 24.0),
                           child: Text(
                             pages[index]["subtitle"],
                             style: const TextStyle(
@@ -139,12 +144,18 @@ class _LandingPageState extends State<LandingPage> {
 
               // CTA Buttons
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 40.0, vertical: 20),
                 child: Column(
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        // Navigate to signup
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignupScreen(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50),
@@ -156,13 +167,18 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       child: const Text(
                         "Join the Movement",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                        style:
+                            TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                     const SizedBox(height: 15),
                     OutlinedButton(
                       onPressed: () {
-                        // Navigate to learn more
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LearnMorePage()),
+                        );
                       },
                       style: OutlinedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50),
@@ -173,13 +189,13 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       child: const Text(
                         "Learn More",
-                        style: TextStyle(fontSize: 16, color: Colors.teal),
+                        style:
+                            TextStyle(fontSize: 16, color: Colors.teal),
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
             ],
           ),
         ),
