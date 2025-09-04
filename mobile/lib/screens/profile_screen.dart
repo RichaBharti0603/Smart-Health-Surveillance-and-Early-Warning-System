@@ -1,4 +1,3 @@
- 
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -7,17 +6,29 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Profile"), centerTitle: true),
+      appBar: AppBar(title: const Text("Profile"), backgroundColor: Colors.teal),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text("Name: Richa", style: TextStyle(fontSize: 18)),
-            SizedBox(height: 10),
-            Text("Role: Community Worker", style: TextStyle(fontSize: 18)),
-            SizedBox(height: 10),
-            Text("Region: Northeast India", style: TextStyle(fontSize: 18)),
+          children: [
+            const CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage("assets/user.png"),
+            ),
+            const SizedBox(height: 20),
+            const Text("John Doe", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            const Text("johndoe@example.com"),
+            const SizedBox(height: 20),
+            ListTile(
+              leading: const Icon(Icons.history),
+              title: const Text("My Reports"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text("Settings"),
+              onTap: () {},
+            ),
           ],
         ),
       ),

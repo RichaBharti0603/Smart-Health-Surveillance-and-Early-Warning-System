@@ -1,44 +1,49 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
+
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  final TextEditingController _controller = TextEditingController();
+  final List<String> messages = [];
+
+  void sendMessage() {
+    if (_controller.text.isNotEmpty) {
+      setState(() {
+        messages.add(_controller.text);
+      });
+      _controller.clear();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Community Chat"), centerTitle: true),
+      appBar: AppBar(title: const Text("Community Chat"), backgroundColor: Colors.teal),
       body: Column(
         children: [
           Expanded(
-            child: ListView(
-              padding: const EdgeInsets.all(16),
-              children: const [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Chip(label: Text("Hello, any new cases?")),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Chip(label: Text("Yes, 2 cases reported today")),
-                ),
-              ],
+            child: ListView.builder(
+              itemCount: messages.length,
+              itemBuilder: (_, index) => ListTile(
+                title: Text(messages[index]),
+              ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                const Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(hintText: "Type a message..."),
-                  ),
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: _controller,
+                  decoration: const InputDecoration(hintText: "Type message..."),
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.send),
-                )
-              ],
-            ),
+              ),
+              IconButton(icon: const Icon(Icons.send), onPressed: sendMessage),
+            ],
           )
         ],
       ),
