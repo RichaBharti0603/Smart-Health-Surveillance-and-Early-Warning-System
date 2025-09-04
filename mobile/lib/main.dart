@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
+import 'screens/landing_page.dart';
 
 void main() {
   runApp(const SmartHealthApp());
@@ -15,7 +16,7 @@ class SmartHealthApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
+      home: const LandingPage(),
     );
   }
 }
