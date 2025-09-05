@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "726419909746",
+    "project_id": "vandana-ed800",
+    "storage_bucket": "vandana-ed800.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726419909746:android:a58f8467ebd9a8d89e66eb",
+        "android_client_info": {
+          "package_name": "com.example.asha_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT-kAAYpBNDFV-Tsd9Is49xqlVNvYcGIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
